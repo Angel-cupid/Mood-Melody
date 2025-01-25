@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Music Recommendations</title>
+    <link rel="shortcut icon" href="./WhatsApp Image 2025-01-24 at 11.18.39 PM.jpeg" type="image/x-icon">
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+            background-color: #075017;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            color: #fffdfd;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .recommendations {
+            background-color: #4eb645;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        .recommendations h3 {
+            margin-bottom: 10px;
+            color: #f5faf7;
+        }
+        .song-list {
+            list-style-type: circle;
+            padding: 20px;
+        }
+        .song-list li {
+            margin: 5px 0;
+            color: #666;
+        }
+        iframe {
+            margin-top: 20px;
+            width: 100%;
+            height: 315px;
+            border: none;
+        }
+        .image-logo{
+            height: 200px;
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mood Music Recommendation</h1>
+    <img src="/WhatsApp Image 2025-01-24 at 11.18.39 PM.jpeg" class="image-logo" alt="" srcset="">
+    <select id="moodSelector">
+        <option value="happy">Happy</option>
+        <option value="sad">Sad</option>
+        <option value="energetic">Energetic</option>
+        <option value="chill">Chill</option>
+        <option value="angry">Angry</option>
+        <option value="nostalgic">Nostalgic</option>
+        <option value="romantic">Romantic</option>
+        <option value="focused">Focused</option>
+    </select>
+
+    <div class="recommendations" id="recommendations">
+        <h3>Recommended Songs:</h3>
+        <ul class="song-list" id="songList">
+            <!-- Song recommendations will appear here -->
+        </ul>
+        <!-- YouTube embed will appear here -->
+        <div id="videoContainer"></div>
+    </div>
+
+    <script>
+        const moodSelector = document.getElementById('moodSelector');
+        const songList = document.getElementById('songList');
+        const videoContainer = document.getElementById('videoContainer');
+
+        const songs = {
+            happy: [
+                { title: "paranne - Benny Dayal and Raghu Dixit", youtubeId: "d99iymZ_Rd8" },
+                { title: "thumbi penne - Sidharth Menon", youtubeId: "elBVykcQ8Qo" },
+                { title: "Ullasagayike - Vidhu Prathap, Shaan Rehman & Remya Nambeesan", youtubeId: "ehj1UpZJSrA" }
+            ],
+            sad: [
+                { title: "azhalinte - nikhil mathew", youtubeId: "mSzrX7YWdKg" },
+                { title: "novinte - sitara krishna kumar", youtubeId: "gQ3puL6FBd0" },
+                { title: "kaneeril - vrinda shameek", youtubeId: "IaZnvLII2Ok" }
+            ],
+            energetic: [
+                { title: "manasilayo -  Anirudh Ravichander, Deepthi Suresh ", youtubeId: "5WsUIeNAtbM" },
+                { title: "rowdy baby - balaji mohan", youtubeId: "x6Q7c9RyMzk" },
+                { title: "galatta - jithu madhavan", youtubeId: "UmqLMftwoUg" }
+            ],
+            chill: [
+                { title: "mazhaye -  gopi sundar", youtubeId: "YfkLNL55t9k" },
+                { title: "pookal pokum - Roop Kumar Rathod", youtubeId: "nWxGhq_lBII" },
+                { title: "mazhaneer thullikal -  Unni Menon", youtubeId: "2SVmPHLuSnk" }
+            ],
+            angry: [
+                { title: "kalip - Murali Gopi, Shabareesh Varma", youtubeId: "PeUjir1kMFM" },
+                { title: "kalip -  Arunraja Kamaraj & Manikandan Ayyappa", youtubeId: "CXHTCBY-uNQ" },
+                { title: "Killing in the Name - Rage Against The Machine", youtubeId: "2FdxU3zV0to" }
+            ],
+            nostalgic: [
+                { title: "ormakal - priyadarshan", youtubeId: "kkrRBjvN3pI" },
+                { title: "pinneyum pinneyum - k j yesudas", youtubeId: "NCcZ6TC9ANo" },
+                { title: "toomanjin' - k j yesudas", youtubeId: "0UHJgumPFvI" }
+            ],
+            romantic: [
+                { title: "ee kaatu vannu - Deepak Dev ", youtubeId: "TFwZuS8Kkcc" },
+                { title: "hey minnale - g v prakash", youtubeId: "0Z3I8TSUwLI" },
+                { title: "kiliye - jithin lal", youtubeId: "B2UBMTA57JI" }
+            ],
+            focused: [
+                { title: "pavizha mazha - k s harishankar", youtubeId: "P-jKtzUuVcM" },
+                { title: "Clair de Lune - Debussy", youtubeId: "JdckEqXg3No" },
+                { title: "Cold Little Heart - Michael Kiwanuka", youtubeId: "M6A9bdGGmHE" }
+            ]
+        };
+
+        moodSelector.addEventListener('change', function() {
+            const selectedMood = moodSelector.value;
+            const recommendedSongs = songs[selectedMood];
+
+            // Clear the current song list and video
+            songList.innerHTML = '';
+            videoContainer.innerHTML = '';
+
+            // Add the new list of songs
+            recommendedSongs.forEach(song => {
+                const listItem = document.createElement('li');
+                listItem.textContent = song.title;
+
+                // Create an "embed" link for each song, allowing users to click to play it
+                const youtubeLink = document.createElement('a');
+                youtubeLink.href = `https://www.youtube.com/watch?v=${song.youtubeId}`;
+                youtubeLink.target = '_blank';
+                youtubeLink.textContent = 'Listen on YouTube';
+                listItem.appendChild(youtubeLink);
+                
+                songList.appendChild(listItem);
+            });
+
+            // Embed the first song's YouTube video automatically (optional)
+            const firstSong = recommendedSongs[0];
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${firstSong.youtubeId}`;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            videoContainer.appendChild(iframe);
+        });
+    </script>
+
+</body>
+</html>
+
