@@ -1,26 +1,26 @@
-# [Mood Melody] 🎯
+# Mood Melody 🎯
 
 
 ## mood music recommendation
-### Team Name: [winners]
+### Team Name: winners
 
 
 ### Team Members
-- Member 1: [Angel] - [MBC]
-- Member 2: [Nandana] - [MBC]
-- Member 3: [Anagha] - [MBC]
+- Member 1: Angel - MBC
+- Member 2: Nandana - MBC
+- Member 3: Anagha - MBC
 
 ### Hosted Project Link
 [mention your project hosted project link here]
 
 ### Project Description
-[recommending songs based on our moods]
+recommending songs based on our moods
 
 ### The Problem statement
-[listening to music withou interuption]
+listening to music without interuption
 
 ### The Solution
-[playing music based on one's own mood ]
+playing music based on one's own mood 
 
 ## Technical Details
 ### Technologies/Components Used
@@ -47,18 +47,18 @@ For Software:
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
+![Screenshot1] coding
+*Add caption explaining what this shows*
+![ss1](https://github.com/user-attachments/assets/5c0c14a5-432e-448f-9f59-4a978425a559)
+
+![Screenshot2] website
+*Add caption explaining what this shows*
+![ss2](https://github.com/user-attachments/assets/d6faaf04-48ca-416d-8881-bd8805fdee14)
+
+![Screenshot3] music
 *Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+![ss3](https://github.com/user-attachments/assets/c13818a0-8124-4bdc-a26d-773b2cf16f16
 
 For Hardware:
 
@@ -71,22 +71,15 @@ For Hardware:
 
 # Build Photos
 ![Team](Add photo of your team here)
-
-
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
+![WhatsApp Image 2025-01-25 at 6 21 13 AM (1)](https://github.com/user-attachments/assets/a425eda9-3dc8-495d-8c2e-93636dedb7a7) 
 
 ### Project Demo
 # Video
 
-[]
-*Explain what the video demonstrates*
+https://github.com/user-attachments/assets/b52c35cb-ad9e-484a-8f0d-c94b299a8479
+
+https://drive.google.com/drive/folders/1hMofT1Ni_tz1Cq49W48HbL1kv5h-oBOH?usp=sharing
+
 
 # Additional Demos
 [Add any extra demo materials/links]
